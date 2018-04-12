@@ -14,6 +14,11 @@ public class Socios extends Clientes {
         super(cliente.getNome(), cliente.getCpf(), cliente.getIdade(), cliente.getGenero());
         this.matricula = matricula;
     }
+    
+    public Socios(String nome, String cpf, int idade, char genero, int matricula) {
+        super(nome, cpf, idade, genero);
+        this.matricula = matricula;
+    }
 
     public int getMatricula() {
         return matricula;

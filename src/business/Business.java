@@ -54,21 +54,24 @@ public class Business {
         return null;
     }
 
-    public void pesquisaPorCpf(String cpf) {
+    public Clientes pesquisaPorCpf(String cpf) {
         for (Clientes c : listaClienteNoBar) {
             if (c.getCpf().equals(cpf)) {
                 System.out.println("Cliente encontrado: \n" + c.toString());
-            } else {
-                System.out.println("Cliente nao encontrado.");
-            }
+                return c;
+            } 
         }
+        System.out.println("Cliente nao encontrado.");
+        
+		return null;
     }
 
-    public void NumeroClientes() {
+    public int numeroClientes() {
         System.out.println("Numero de clientes que estao no bar no momento: " + listaClienteNoBar.size());
+        return  listaClienteNoBar.size();
     }
 
-    public void PorcentagemClientes(char genero) {
+    public void porcentagemClientes(char genero) {
         double contHomem = 0;
         double percentHomem = 0;
         for (Clientes c : listaClienteNoBar) {
@@ -87,7 +90,7 @@ public class Business {
         }
     }
 
-    public void QuantidadeSociosClientes() {
+    public void quantidadeSociosClientes() {
         int contSocio = 0;
         int contComum = 0;
         for (Clientes c : listaClienteNoBar) {
@@ -116,5 +119,13 @@ public class Business {
         } catch (IOException ex) {
 
         }
+    }
+    
+    public ArrayList<Clientes> getListaDia(){
+    	return listaClienteDoDia;
+    }
+    
+    public ArrayList<Clientes> getListaBar(){
+    	return listaClienteNoBar;
     }
 }
