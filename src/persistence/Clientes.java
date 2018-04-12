@@ -1,5 +1,10 @@
 package persistence;
 
+/**
+*
+* @author Mathias Elbern
+*/
+
 public class Clientes
 {
     private String nome;
