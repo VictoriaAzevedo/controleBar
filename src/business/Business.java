@@ -28,13 +28,13 @@ public class Business {
         for (Clientes c : listaClienteNoBar) {
             if (c.getCpf().equals(cpf)) {
                 listaClienteNoBar.remove(c);
-                System.out.println(c.getNome() + " saiu do estabelecimento.");
+                System.out.println("Cliente com o cpf " + cpf + " saiu do estabelecimento.");
                 removido = true;
                 break;
             }
         }
         if (removido = false) {
-            System.out.println("CPF nao encontrado na base de dados");
+            System.out.println("CPF nao encontrado na lista de clientes que estao no bar.");
         }
     }
 
@@ -69,33 +69,35 @@ public class Business {
     }
 
     public void PorcentagemClientes(char genero) {
-        double contGenero = 0;
-        double percentGenero = 0;
+        double contHomem = 0;
+        double percentHomem = 0;
         for (Clientes c : listaClienteNoBar) {
-            if (c.getGenero() == genero) {
-                contGenero = contGenero + 1;
+            if (c.getGenero() == 'M') {
+                contHomem = contHomem + 1;
             }
         }
         if (listaClienteNoBar.size() == 0) {
-        	System.out.println("Nao ha clientes no bar.");
+             System.out.println("Bar vazio");
         } else {
-            percentGenero = contGenero * (100 / listaClienteNoBar.size());
-            System.out.println("Percentual de "+ genero + "no bar: " + percentGenero + "\n"
-                    + "Numero de"+genero +" no bar: "+contGenero);
+            percentHomem = contHomem * (100 / listaClienteNoBar.size());
+            System.out.println("Percentual de Homens:" + percentHomem + "\n"
+                    + "Percentual de Mulheres:" + (100 - percentHomem)+"\n"
+            		+ "Numero de Homens: "+contHomem +"\n"+
+                    "Numero de Mulheres: " + (listaClienteNoBar.size()-contHomem));
         }
     }
 
     public void QuantidadeSociosClientes() {
         int contSocio = 0;
-        int contCliente = 0;
+        int contComum = 0;
         for (Clientes c : listaClienteNoBar) {
             if (c instanceof Socios) {
                 contSocio++;
             } else {
-                contCliente++;
+                contComum++;
             }
         }
-        System.out.println("Socios no bar: " + contSocio + "\nClientes nao-socios no bar: " + contCliente);
+        System.out.println("Nº Socios: " + contSocio + "\nNº Nao-Socios: " + contComum);
     }
 
     public void arquivoTxt() {
