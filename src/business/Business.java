@@ -67,11 +67,10 @@ public class Business {
     }
 
     public int numeroClientes() {
-        System.out.println("Numero de clientes que estao no bar no momento: " + listaClienteNoBar.size());
         return  listaClienteNoBar.size();
     }
 
-    public void porcentagemClientes(char genero) {
+    public void porcentagemClientes() {
         double contHomem = 0;
         double percentHomem = 0;
         for (Clientes c : listaClienteNoBar) {
